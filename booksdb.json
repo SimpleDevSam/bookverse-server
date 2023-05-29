@@ -1,1 +1,5 @@
-[{"id":"1","nome":"Great Book"},{"id":"2","nome":"Very Great Book"},{"id":"3","nome":"Best Book"}]
+[
+  { "id": "1", "nome": "Great Book" },
+  { "id": "2", "nome": "Very Great Book" },
+  { "id": "3", "nome": "Best Book" }
+]
