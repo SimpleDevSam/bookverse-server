@@ -32,6 +32,7 @@ function deleteBook(id) {
     let books = JSON.parse(fs.readFileSync("booksdb.json"))
     const bookIndex = books.findIndex(book => book.id === id)
     books = books.slice(bookIndex)
+    fs.writeFileSync("booksdb.json",JSON.stringify(books))
 }
 
 module.exports = {
