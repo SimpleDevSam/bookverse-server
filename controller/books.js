@@ -2,7 +2,7 @@ const { getAllBooks, getBookById, insertBook, changeBook, deleteBook } = require
 
 function getBooks (req,res)  {
     try{
-        const books = getAllBooks
+        const books = getAllBooks()
         res.send(books)
     } catch (error){
         res.status(500)
