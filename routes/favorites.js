@@ -4,7 +4,7 @@ const router = Router()
 
 router.get('/', getFavorites)
 
-router.post("/", postFavorite)
+router.post("/:id", postFavorite)
 
 router.delete("/:id", removeFavorite)
 
