@@ -21,9 +21,7 @@ function getBook(req,res)  {
         } else {
             res.status(422)
             res.send("Invalid ID")
-        }
-
-        
+        }  
     } catch (error){
         res.status(500)
         res.send(error.message)
