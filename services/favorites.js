@@ -6,8 +6,8 @@ function getAllFavorites () {
 
 function deleteFavoriteById(id) {
     const books = JSON.parse(fs.readFileSync("favbooksdb.json"))
-    const filteredBooks = books.filter(book => book.id !==id )
-    fs.writeFileSync("favorites.json", JSON.stringify(filteredBooks))
+    const filteredBooks = books.filter(book => book.id !== id )
+    fs.writeFileSync("favbooksdb.json", JSON.stringify(filteredBooks))
 }
 
 function insertFavorite (id) {
