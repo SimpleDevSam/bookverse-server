@@ -52,4 +52,4 @@ Distribuites on ISC license
 
 ### Contact
 
-Samuel Maia Salvador de Assis - tralala@gmail.com.br
+Samuel Maia Salvador de Assis - samuelufop121035@gmail.com
