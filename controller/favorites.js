@@ -21,8 +21,15 @@ function postFavorite(req, res) {
     res.status(200);
     res.send("Book inserted succesfully");
   } catch (error) {
-    res.status(500);
-    res.send(error.message);
+    if (error.message === "This book is already in favorites") {
+      res.status(409)
+      res.send("Book already in favorites")
+    } else {
+        res.status(500);
+        res.send(error.message);
+    }
+
+  
   }
 }
 
