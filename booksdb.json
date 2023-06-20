@@ -1,34 +1,68 @@
 [
   {
     "id": "4",
-    "name": "Entendendo algoritmos"
+    "name": "Entendendo algoritmos",
+    "category":"Self Knowledge"
   },
   {
     "id": "5",
-    "name": "Cangaceiro Javascript"
+    "name": "Cangaceiro Javascript",
+    "category":"Self Development"
+    
   },
   {
     "id": "7",
-    "name": "Guia básico de C#"
+    "name": "Guia básico de C#",
+    "category":"Coding"
   },
   {
     "id": "8",
-    "name": "Guia básico de JavaScript"
+    "name": "Guia básico de JavaScript",
+    "category":"Self Knowledge"
   },
   {
     "id": "9",
-    "name": "Código Limpo"
+    "name": "Código Limpo",
+    "category": "Coding"
   },
   {
     "id": "10",
-    "name": "JavaScript para iniciantes"
+    "name": "JavaScript para iniciantes",
+    "category":"Self Development"
   },
   {
     "id": "11",
-    "name": "Conhecendo o python"
+    "name": "Using Python",
+    "category":"Self Knowledge"
   },
   {
     "id": "12",
-    "name": "Imersão Alura"
+    "name": "Alura Imersion",
+    "category":"Self Knowledge"
+  },
+  {
+    "id": "8",
+    "name": "JavaScript Basic Guide",
+    "category":"Self Knowledge"
+  },
+  {
+    "id": "13",
+    "name": "Clean Code",
+    "category": "Coding"
+  },
+  {
+    "id": "14",
+    "name": "JavaScript for beginners",
+    "category":"Self Development"
+  },
+  {
+    "id": "15",
+    "name": "Using Python 2",
+    "category":"Self Knowledge"
+  },
+  {
+    "id": "16",
+    "name": "Alura Imersion 3",
+    "category":"Self Knowledge"
   }
 ]
