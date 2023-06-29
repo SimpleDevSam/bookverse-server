@@ -20,6 +20,6 @@ const Booksdb = db.define("books",{
 )
 
 //Create table if doesn't exists
-Booksdb.sync();
+//Booksdb.sync();
 
 module.exports = Booksdb

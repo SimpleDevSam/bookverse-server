@@ -1,8 +1,9 @@
-const fs = require("fs");
+const fs = require("fs")
 
 function getAllFavorites() {
   return JSON.parse(fs.readFileSync("favbooksdb.json"));
 }
+
 
 function deleteFavoriteById(id) {
   const books = JSON.parse(fs.readFileSync("favbooksdb.json"));
@@ -17,6 +18,8 @@ function insertFavorite(id) {
   const insertedBook = books.find((book) => book.id === id);
   
   const isBookInFavorites = favorites.some((book) => book.id === id);
+
+  
 
   if (isBookInFavorites) {
     throw new Error("This book is already in favorites");

@@ -1,13 +1,17 @@
 const {
-  getAllFavorites,
+  // getAllFavorites
   insertFavorite,
   deleteFavoriteById,
 } = require("../services/favorites");
+const getAllFavorites = require("../services/favorites1.js")
 
-function getFavorites(req, res) {
+async function getFavorites(req, res) {
   try {
-    const books = getAllFavorites();
+    const books = await getAllFavorites();
+    console.log("Check get favorites")
+    console.log(books)
     res.send(books);
+    
   } catch (error) {
     res.status(500);
     res.send(error.message);

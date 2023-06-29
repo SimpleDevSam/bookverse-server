@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize")
 const db = require("./db")
 
-const FavBooksdb = db.define("favbooks",{
+const FavBooks = db.define("favbooks",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -19,6 +19,7 @@ const FavBooksdb = db.define("favbooks",{
 )
 
 //Create table if doesn't exists
-//FavBooksdb.sync();
+//FavBooks.sync();
 
-module.exports = FavBooksdb
+module.exports = FavBooks
+
