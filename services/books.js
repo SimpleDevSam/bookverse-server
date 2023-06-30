@@ -1,8 +1,11 @@
-const fs = require("fs")
+
+const Books = require("../models/Books")
 
 
-function getAllBooks () {
-    return JSON.parse(fs.readFileSync("booksdb.json"))
+async function getAllBooks () {
+    const books = await Books.findAll();
+    console.log("Passed through GetAllbooks service");
+    return books;
 }
 
 function getBookById (id) {

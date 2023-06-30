@@ -1,8 +1,9 @@
 const { getAllBooks, getBookById, insertBook, changeBook, deleteBook } = require("../services/books.js")
 
-function getBooks (req,res)  {
+async function getBooks (req,res)  {
     try{
-        const books = getAllBooks()
+        const books = await getAllBooks()
+        console.log("passed by getBooks controller")
         res.send(books)
     } catch (error){
         res.status(500)

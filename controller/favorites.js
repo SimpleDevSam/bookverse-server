@@ -1,15 +1,13 @@
-const {
-  // getAllFavorites
-  insertFavorite,
-  deleteFavoriteById,
-} = require("../services/favorites");
-const getAllFavorites = require("../services/favorites1.js")
+// const {
+//   // getAllFavorites
+//   insertFavorite,
+// } = require("../services/favorites");
+const {getAllFavorites,deleteFavoriteById,insertFavorite} = require("../services/favorites1.js")
 
 async function getFavorites(req, res) {
   try {
     const books = await getAllFavorites();
-    console.log("Check get favorites")
-    console.log(books)
+    console.log("Check get favorites controller")
     res.send(books);
     
   } catch (error) {
@@ -18,10 +16,10 @@ async function getFavorites(req, res) {
   }
 }
 
-function postFavorite(req, res) {
+async function postFavorite(req, res) {
   try {
     const id = req.params.id;
-    insertFavorite(id);
+    await insertFavorite(id);
     res.status(200);
     res.send("Book inserted succesfully");
   } catch (error) {
