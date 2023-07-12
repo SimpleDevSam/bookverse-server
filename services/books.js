@@ -1,48 +1,46 @@
+const Books = require("../models/Books");
 
-const Books = require("../models/Books")
-
-
-async function getAllBooks () {
-    const books = await Books.findAll();
-    console.log("Passed through GetAllbooks service");
-    return books;
+async function getAllBooks() {
+  const books = await Books.findAll();
+  console.log("Passed through GetAllbooks service");
+  return books;
 }
 
-function getBookById (id) {
-    const books = JSON.parse(fs.readFileSync("booksdb.json"))
-    const filteredBook = books.filter(book => livro.id === id) [0]
-    return filteredBook
+async function getBookById(id) {
+  const book = await Books.findOne({
+    where: {
+      id: id,
+    },
+  });
+  const bookDataValues = book.dataValues;
+  return bookDataValues
 }
 
-function insertBook (newBook) {
-    const books = JSON.parse(fs.readFileSync("booksdb.json"))
-
-    const newBookList = [...books, newBook]
-
-    fs.writeFileSync("booksdb.json", JSON.stringify(newBookList))
+async function insertBook(newBook) {
+  await Books.create(newBook)
 }
 
-function changeBook(changes, id) {
-    let books = JSON.parse(fs.readFileSync("booksdb.json"))
-    const modifiedIndex = books.findIndex(book => book.id === id)
-    const modifiedContent = {...books[modifiedIndex],...changes}
+async function changeBook(changes, id) {
+    await Books.update(changes, {
+        where: {
+          id:id
+        }
+      });
 
-    books[modifiedIndex] = modifiedContent
-
-    fs.writeFileSync("booksdb.json", JSON.stringify(books))
 }
 
-function deleteBook(id) {
-    let books = JSON.parse(fs.readFileSync("booksdb.json"))
-    const bookIndex = books.findIndex(book => book.id === id)
-    books = books.slice(bookIndex)
-    fs.writeFileSync("booksdb.json",JSON.stringify(books))
+async function deleteBook(id) {
+  await Books.destroy({
+    where:{
+      id:id
+    }
+  })
 }
 
 module.exports = {
-    getAllBooks,
-    getBookById,
-    insertBook,
-    changeBook,
-    deleteBook
-}
+  getAllBooks,
+  getBookById,
+  insertBook,
+  changeBook,
+  deleteBook,
+};

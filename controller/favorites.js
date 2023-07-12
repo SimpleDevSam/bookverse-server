@@ -1,7 +1,3 @@
-// const {
-//   // getAllFavorites
-//   insertFavorite,
-// } = require("../services/favorites");
 const {getAllFavorites,deleteFavoriteById,insertFavorite} = require("../services/favorites1.js")
 
 async function getFavorites(req, res) {
@@ -22,13 +18,13 @@ async function postFavorite(req, res) {
     await insertFavorite(id);
     res.status(200);
     res.send("Book inserted succesfully");
-  } catch (error) {
-    if (error.message === "This book is already in favorites") {
+  } catch (Error) {
+    if (Error.name === "SequelizeUniqueConstraintError") {
       res.status(409)
       res.send("Book already in favorites")
     } else {
         res.status(500);
-        res.send(error.message);
+        res.send(Error.message);
     }
 
   

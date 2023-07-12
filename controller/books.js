@@ -12,12 +12,12 @@ async function getBooks (req,res)  {
 
 }
 
-function getBook(req,res)  {
+async function getBook(req,res)  {
     try{
         const id = req.params.id
 
         if (id && Number(id)) {
-            const book = getBookById(id)
+            const book = await getBookById(id)
             res.send(book)
         } else {
             res.status(422)
@@ -30,11 +30,12 @@ function getBook(req,res)  {
 
 }
 
-function postBook(req,res) {
+async function postBook(req,res) {
     try{
         const newBook = req.body 
+        console.log(newBook)
         if (req.body.name) {
-            insertBook(newBook)
+            await insertBook(newBook)
             res.status(200)
             res.send("Book added succesfully")
         } else {
@@ -47,12 +48,12 @@ function postBook(req,res) {
     }
 }
 
-function patchBook(req,res) {
+async function patchBook(req,res) {
     try{
         const id = req.params.id
         if (id && Number(id)) {
             const body = req.body
-            changeBook(body,id)
+            await changeBook(body,id)
             res.status(201)
             res.send("Book modified succesfully")
         } else {

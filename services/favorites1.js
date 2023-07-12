@@ -10,26 +10,18 @@ async function getAllFavorites() {
 async function deleteFavoriteById(id) {
   await FavBooks.destroy({
     where: {
-      id: id
+      id: id,
     },
   });
 }
 
-async function insertFavorite(id){
-      const bookToBeInserted = await Books.findOne({ 
-        where: {
-        id: id } })
-        const Titico = bookToBeInserted.dataValues=
-
-        FavBooks.create(bookToBeInserted)
-
-      console.log(bookToBeInserted)
-    
-      // const filteredBooks = books.filter(book => book.id === id)
-      // console.log(filteredBooks)
-      // console.log("Passed by insertFavorite service");
-      // console.log("ID:", id);
-      // FavBooks.create(filteredBooks)
-
- }
+async function insertFavorite(id) {
+  const bookToBeInserted = await Books.findOne({
+    where: {
+      id: id,
+    },
+  });
+  const dataValues = bookToBeInserted.dataValues;
+  await FavBooks.create(dataValues);
+}
 module.exports = { getAllFavorites, deleteFavoriteById, insertFavorite };
