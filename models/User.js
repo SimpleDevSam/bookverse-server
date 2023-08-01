@@ -16,10 +16,14 @@ const User = db.define("users",{
         type:Sequelize.STRING,
         allowNull:false,  
     },
+    password :{
+        type:Sequelize.STRING,
+        allowNull:false,  
+    }
 }
 )
 
 //Create table if doesn't exists
-//User.sync();
+//User.sync({ force: true,alter: true });
 
 module.exports = User
