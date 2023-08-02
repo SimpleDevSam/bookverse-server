@@ -3,7 +3,6 @@ const {getAllUsers,getUser, insertUser,changeUser,deleteUser} = require("../serv
 async function getUsers(req, res) {
   try {
     const users = await getAllUsers();
-    console.log("passed by getUsers controller");
     res.send(users);
   } catch (error) {
     res.status(500);

@@ -2,7 +2,6 @@ const Users = require("../models/User.js");
 
 async function getAllUsers() {
   const users = await Users.findAll();
-  console.log("Passed through GetAllUsers service");
   return users;
 }
 

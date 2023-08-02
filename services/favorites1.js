@@ -3,7 +3,6 @@ const Books = require("../models/Books");
 
 async function getAllFavorites() {
   const books = await FavBooks.findAll();
-  console.log("Passed by Fav service");
   return books;
 }
 

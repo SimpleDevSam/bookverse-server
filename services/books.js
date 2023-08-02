@@ -2,7 +2,6 @@ const Books = require("../models/Books");
 
 async function getAllBooks() {
   const books = await Books.findAll();
-  console.log("Passed through GetAllbooks service");
   return books;
 }
 
