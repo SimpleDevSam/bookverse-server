@@ -27,6 +27,7 @@ async function insertUser(newuser) {
   } else {
     const error = new Error ("Email already exists")
     error.status=409;
+    console.log(error)
     throw error;  
   }
 }

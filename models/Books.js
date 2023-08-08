@@ -2,7 +2,7 @@ const Sequelize = require("sequelize")
 const db = require("./db")
 
 const Booksdb = db.define("books",{
-    id:{
+    bookid:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
         allowNull: false,
@@ -16,10 +16,18 @@ const Booksdb = db.define("books",{
         type:Sequelize.STRING,
         allowNull:false,  
     },
+    author :{
+        type:Sequelize.STRING,
+        allowNull:false,  
+    },
+    abstract :{
+        type:Sequelize.TEXT('long'),
+        allowNull:false,  
+    },
 }
 )
 
 
-//Booksdb.sync();
+//Booksdb.sync({force:true})
 
 module.exports = Booksdb

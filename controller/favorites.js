@@ -2,7 +2,9 @@ const {getAllFavorites,deleteFavoriteById,insertFavorite} = require("../services
 
 async function getFavorites(req, res) {
   try {
-    const books = await getAllFavorites();
+    const userId = req.params.userId;
+    console.log(userId)
+    const books = await getAllFavorites(userId);
     console.log("Check get favorites controller")
     res.send(books);
     
@@ -15,7 +17,10 @@ async function getFavorites(req, res) {
 async function postFavorite(req, res) {
   try {
     const id = req.params.id;
-    await insertFavorite(id);
+    const userId = req.body.userid;
+    console.log("id enviado"+id)
+    console.log(userId)
+    await insertFavorite(id,userId);
     res.status(200);
     res.send("Book inserted succesfully");
   } catch (Error) {

@@ -8,7 +8,7 @@ async function getAllBooks() {
 async function getBookById(id) {
   const book = await Books.findOne({
     where: {
-      id: id,
+      bookid: id,
     },
   });
   const bookDataValues = book.dataValues;
@@ -22,7 +22,7 @@ async function insertBook(newBook) {
 async function changeBook(changes, id) {
     await Books.update(changes, {
         where: {
-          id:id
+          bookid:id
         }
       });
 
@@ -31,7 +31,7 @@ async function changeBook(changes, id) {
 async function deleteBook(id) {
   await Books.destroy({
     where:{
-      id:id
+      bookid:id
     }
   })
 }

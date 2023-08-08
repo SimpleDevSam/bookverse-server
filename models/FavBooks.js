@@ -2,24 +2,24 @@ const Sequelize = require("sequelize")
 const db = require("./db")
 
 const FavBooks = db.define("favbooks",{
-    id:{
+
+    bookid:{
         type:Sequelize.INTEGER,
-        allowNull: false,
-        primaryKey:true
+        allowNull: false
     },
     name :{
         type:Sequelize.STRING,
-        allowNull:false,  
+        allowNull:false 
     },
-    category :{
-        type:Sequelize.STRING,
-        allowNull:false,  
-    },
+    userid:{
+        type:Sequelize.INTEGER,
+        allowNull:false
+    }
 }
 )
 
 //Create table if doesn't exists
-//FavBooks.sync();
+//FavBooks.sync({force:true});
 
 module.exports = FavBooks
 
