@@ -11,15 +11,11 @@ async function GetCommentsByBook(id) {
     Comments.belongsTo(Users)
 
     const commentsTry = await Comments.findAll({
-        include:{model:Users,required:true}
+        include:{model:Users,required:true},
+        where:{bookid:id
+
+        }
     })
-
-    console.log(commentsTry.DataValues)
-
-    const comments = await Comments.findAll({where:
-    {
-        bookid:id
-    }})
 
     return commentsTry
 }
