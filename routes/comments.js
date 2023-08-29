@@ -1,5 +1,5 @@
 const {Router} = require("express")
-const { GetComments,GetBookComments, PostComment } = require("../controller/comments");
+const { GetComments,GetBookComments, PostComment, DeleteComment, PatchComment } = require("../controller/comments");
 const router = Router()
 
 router.get('/', GetComments)
@@ -8,8 +8,8 @@ router.get('/:id', GetBookComments)
 
 router.post("/:id", PostComment)
 
-// router.patch("/:id", patchBook)
+router.patch("/:id", PatchComment)
 
-// router.delete("/:id", removeBook)
+router.delete("/:id", DeleteComment)
 
 module.exports = router

@@ -1,4 +1,4 @@
-const {GetAllComments, InsertComment, GetCommentById, GetCommentsByBook} = require ("../services/comments")
+const {GetAllComments, InsertComment, GetCommentById, GetCommentsByBook, RemoveComment} = require ("../services/comments")
 
 async function GetComments (req,res) {
     try {
@@ -66,5 +66,42 @@ async function PostComment (req,res) {
     }
 }
 
+async function DeleteComment (req,res) {
+    try{
+        const id = req.params.id
+        console.log(id)
+        if (id && Number(id)) {
+            const comments = await RemoveComment(id)
+            res.send(comments)
+        } else {
+            res.status(422)
+            res.send("Invalid ID")
+        }
+    } catch (error) {
+        res.status(500)
+        res.send(error.message)
+    }
+}  
 
-module.exports = {GetComments,GetComment,PostComment,GetBookComments}
+async function PatchComment(req,res) {
+    try{
+        const id = req.params.id
+        if (id && Number(id)) {
+            const body = req.body
+            await changeBook(body,id)
+            res.status(201)
+            res.send("Comment modified succesfully")
+        } else {
+            res.status(422)
+            res.send("Invalid ID")
+        }
+        
+    } catch(error) {
+        res.status(500)
+        res.send(error.message)
+    }
+}
+
+
+
+module.exports = {GetComments,GetComment,PostComment,GetBookComments, DeleteComment, PatchComment }
