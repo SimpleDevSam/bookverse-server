@@ -11,6 +11,16 @@ async function getAllFavorites(userId) {
   return books;
 }
 
+async function getAllTheFavorites(id) {
+  const books = await FavBooks.findAll({where:{
+    bookid:id
+  }})
+  console.log(books)
+  console.log(books.length)
+  const bookLength =[{count:books.length}]
+  return bookLength;
+}
+
 async function deleteFavoriteById(id) {
   await FavBooks.destroy({
     where: {
@@ -47,4 +57,4 @@ async function insertFavorite(id, userId) {
     throw error2Fav;
   }
 }
-module.exports = { getAllFavorites, deleteFavoriteById, insertFavorite };
+module.exports = { getAllFavorites, deleteFavoriteById, insertFavorite,getAllTheFavorites };
