@@ -1,4 +1,4 @@
-const {getAllTheFavorites,deleteFavoriteById,insertFavorite} = require("../services/favorites1.js")
+const {getAllTheFavorites,deleteFavoriteById,insertFavorite,getAllFavorites} = require("../services/favorites1.js")
 
 async function getFavorites(req, res) {
   try {
